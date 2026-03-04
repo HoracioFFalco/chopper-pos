@@ -27,8 +27,8 @@ const MetricsConsolidated = () => {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-dark-900 border border-dark-700 p-3 rounded-xl shadow-xl">
-          <p className="text-dark-50 font-bold mb-2">{label}</p>
+        <div className="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 p-3 rounded-xl shadow-xl">
+          <p className="text-slate-900 dark:text-slate-100 font-bold mb-2">{label}</p>
           {payload.map((entry, index) => (
             <p key={index} className="text-sm" style={{ color: entry.color }}>
               {entry.name}: <span className="font-bold">{formatCurrency(entry.value)}</span>
@@ -43,8 +43,8 @@ const MetricsConsolidated = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-dark-50">Reporte Consolidado</h1>
-        <p className="text-sm text-dark-400">Rendimiento global de la empresa</p>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Reporte Consolidado</h1>
+        <p className="text-sm text-slate-600 dark:text-slate-400">Rendimiento global de la empresa</p>
       </div>
 
       {isLoading || !data ? (
@@ -62,14 +62,14 @@ const MetricsConsolidated = () => {
                 <p className="text-emerald-300 font-medium mb-1">Ganancia Neta Global</p>
                 <p className="text-3xl font-black text-emerald-500">{formatCurrency(data.global_stats.total_profit)}</p>
              </div>
-             <div className="bg-dark-900 border border-dark-800 p-6 rounded-2xl text-center">
-                <p className="text-dark-400 font-medium mb-1">Margen Global Promedio</p>
-                <p className="text-3xl font-black text-dark-50">{data.global_stats.overall_margin.toFixed(1)}%</p>
+             <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl text-center">
+                <p className="text-slate-600 dark:text-slate-400 font-medium mb-1">Margen Global Promedio</p>
+                <p className="text-3xl font-black text-slate-900 dark:text-slate-100">{data.global_stats.overall_margin.toFixed(1)}%</p>
              </div>
           </div>
 
-          <div className="bg-dark-900 p-6 rounded-2xl border border-dark-800">
-            <h3 className="text-lg font-bold text-dark-50 mb-6">Comparativa de Sucursales (Ventas y Ganancia)</h3>
+          <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-6">Comparativa de Sucursales (Ventas y Ganancia)</h3>
             <div className="h-[400px] w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={data.branch_performance} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>

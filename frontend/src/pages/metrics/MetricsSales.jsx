@@ -46,8 +46,8 @@ const MetricsSales = () => {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-dark-900 border border-dark-700 p-3 rounded-xl shadow-xl">
-          <p className="text-dark-50 font-bold mb-2">{label}</p>
+        <div className="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 p-3 rounded-xl shadow-xl">
+          <p className="text-slate-900 dark:text-slate-100 font-bold mb-2">{label}</p>
           {payload.map((entry, index) => (
             <p key={index} className="text-sm" style={{ color: entry.color }}>
               {entry.name}: <span className="font-bold">{formatCurrency(entry.value)}</span>
@@ -75,8 +75,8 @@ const MetricsSales = () => {
       ) : (
         <>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-dark-900 p-6 rounded-2xl border border-dark-800">
-              <h3 className="text-lg font-bold text-dark-50 mb-6">Evolución de Ventas</h3>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-6">Evolución de Ventas</h3>
               <div className="h-[300px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={data.sales_by_day} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
@@ -90,8 +90,8 @@ const MetricsSales = () => {
               </div>
             </div>
 
-            <div className="bg-dark-900 p-6 rounded-2xl border border-dark-800">
-              <h3 className="text-lg font-bold text-dark-50 mb-6">Ventas por Método de Pago</h3>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-6">Ventas por Método de Pago</h3>
               <div className="h-[300px] w-full flex items-center justify-center">
                 {data.sales_by_payment.length > 0 ? (
                   <ResponsiveContainer width="100%" height="100%">
@@ -109,18 +109,18 @@ const MetricsSales = () => {
                         ))}
                       </Pie>
                       <Tooltip formatter={(value) => formatCurrency(value)} contentStyle={{ backgroundColor: '#1a1a1a', borderColor: '#333' }} />
-                      <Legend verticalAlign="bottom" height={36} formatter={(val) => <span className="text-dark-200 capitalize">{val.replace('_', ' ')}</span>} />
+                      <Legend verticalAlign="bottom" height={36} formatter={(val) => <span className="text-slate-800 dark:text-slate-200 capitalize">{val.replace('_', ' ')}</span>} />
                     </PieChart>
                   </ResponsiveContainer>
                 ) : (
-                  <p className="text-dark-400">No hay datos suficientes</p>
+                  <p className="text-slate-600 dark:text-slate-400">No hay datos suficientes</p>
                 )}
               </div>
             </div>
           </div>
 
-          <div className="bg-dark-900 p-6 rounded-2xl border border-dark-800">
-            <h3 className="text-lg font-bold text-dark-50 mb-6">Ventas por Hora del Día</h3>
+          <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-6">Ventas por Hora del Día</h3>
             <div className="h-[250px] w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={data.sales_by_hour} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>

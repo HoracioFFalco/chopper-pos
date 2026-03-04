@@ -1,3 +1,6 @@
+#!/bin/bash
+# First, let's update index.css to use CSS variables
+cat << 'CSS' > frontend/src/index.css
 @import "tailwindcss";
 @config "../tailwind.config.js";
 @custom-variant dark (&:where(.dark, .dark *));
@@ -77,6 +80,7 @@ body {
 
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased;
+    @apply bg-slate-50 text-slate-900 dark:bg-dark-950 dark:text-dark-50 antialiased;
   }
 }
+CSS

@@ -7,12 +7,12 @@ const NotFound = () => {
 
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center p-4">
-      <div className="w-20 h-20 bg-dark-800 text-dark-400 rounded-full flex items-center justify-center mb-6">
+      <div className="w-20 h-20 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded-full flex items-center justify-center mb-6">
         <SearchX className="w-10 h-10" />
       </div>
-      <h1 className="text-4xl font-black text-dark-50 mb-2">404</h1>
-      <h2 className="text-xl font-medium text-dark-300 mb-6">Página no encontrada</h2>
-      <p className="text-dark-400 text-center max-w-md mb-8">
+      <h1 className="text-4xl font-black text-slate-900 dark:text-slate-100 mb-2">404</h1>
+      <h2 className="text-xl font-medium text-slate-700 dark:text-slate-300 mb-6">Página no encontrada</h2>
+      <p className="text-slate-600 dark:text-slate-400 text-center max-w-md mb-8">
         La ruta a la que intentas acceder no existe o no tienes los permisos necesarios para verla.
       </p>
       <button

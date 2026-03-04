@@ -43,35 +43,35 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-dark-950 p-4">
-      <div className="w-full max-w-md bg-dark-900 rounded-2xl shadow-xl border border-dark-800 p-8">
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900 p-4">
+      <div className="w-full max-w-md bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-8">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-primary-500 mb-2">Chopper POS</h1>
-          <p className="text-dark-400">Ingresa tus credenciales para continuar</p>
+          <p className="text-slate-600 dark:text-slate-400">Ingresa tus credenciales para continuar</p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-dark-300 mb-1">Email</label>
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email</label>
             <input
               type="email"
               {...register('email')}
-              className={`w-full px-4 py-2 bg-dark-800 border ${
-                errors.email ? 'border-red-500' : 'border-dark-700'
-              } rounded-lg text-dark-50 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all`}
+              className={`w-full px-4 py-2 bg-slate-100 dark:bg-slate-700 border ${
+                errors.email ? 'border-red-500' : 'border-slate-300 dark:border-slate-600'
+              } rounded-lg text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all`}
               placeholder="admin@chopper.com"
             />
             {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>}
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-dark-300 mb-1">Contraseña</label>
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Contraseña</label>
             <input
               type="password"
               {...register('password')}
-              className={`w-full px-4 py-2 bg-dark-800 border ${
-                errors.password ? 'border-red-500' : 'border-dark-700'
-              } rounded-lg text-dark-50 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all`}
+              className={`w-full px-4 py-2 bg-slate-100 dark:bg-slate-700 border ${
+                errors.password ? 'border-red-500' : 'border-slate-300 dark:border-slate-600'
+              } rounded-lg text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all`}
               placeholder="••••••••"
             />
             {errors.password && <p className="mt-1 text-xs text-red-500">{errors.password.message}</p>}

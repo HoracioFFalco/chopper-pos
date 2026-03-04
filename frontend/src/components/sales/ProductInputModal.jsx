@@ -106,10 +106,10 @@ const ProductInputModal = ({ product, isOpen, onClose, onAdd }) => {
     }>
       <div className="space-y-6">
         {/* Info de Precios */}
-        <div className="flex justify-between bg-dark-800 p-4 rounded-xl border border-dark-700">
+        <div className="flex justify-between bg-slate-100 dark:bg-slate-700 p-4 rounded-xl border border-slate-300 dark:border-slate-600">
           <div>
-            <p className="text-xs text-dark-400">Menudeo</p>
-            <p className="font-bold text-dark-50">{formatCurrency(product.retail_price)} <span className="text-xs font-normal text-dark-400">/ {unit}</span></p>
+            <p className="text-xs text-slate-600 dark:text-slate-400">Menudeo</p>
+            <p className="font-bold text-slate-900 dark:text-slate-100">{formatCurrency(product.retail_price)} <span className="text-xs font-normal text-slate-600 dark:text-slate-400">/ {unit}</span></p>
           </div>
           {product.wholesale_price && (
             <div className="text-right">
@@ -121,16 +121,16 @@ const ProductInputModal = ({ product, isOpen, onClose, onAdd }) => {
 
         {/* Toggle Mode (solo granel) */}
         {isBulk && (
-          <div className="flex p-1 bg-dark-800 rounded-lg">
+          <div className="flex p-1 bg-slate-100 dark:bg-slate-700 rounded-lg">
             <button
               onClick={() => setMode('cantidad')}
-              className={`flex-1 py-1.5 text-sm font-medium rounded-md transition-colors ${mode === 'cantidad' ? 'bg-dark-600 text-white shadow-sm' : 'text-dark-400 hover:text-dark-200'}`}
+              className={`flex-1 py-1.5 text-sm font-medium rounded-md transition-colors ${mode === 'cantidad' ? 'bg-slate-700 dark:bg-slate-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
             >
               Por Cantidad
             </button>
             <button
               onClick={() => setMode('monto')}
-              className={`flex-1 py-1.5 text-sm font-medium rounded-md transition-colors ${mode === 'monto' ? 'bg-dark-600 text-white shadow-sm' : 'text-dark-400 hover:text-dark-200'}`}
+              className={`flex-1 py-1.5 text-sm font-medium rounded-md transition-colors ${mode === 'monto' ? 'bg-slate-700 dark:bg-slate-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
             >
               Por Monto ($)
             </button>
@@ -139,7 +139,7 @@ const ProductInputModal = ({ product, isOpen, onClose, onAdd }) => {
 
         {/* Input */}
         <div>
-          <label className="block text-sm font-medium text-dark-300 mb-2">
+          <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
             {mode === 'cantidad' ? `Cantidad a vender (${unit})` : 'Monto a vender ($)'}
           </label>
           <div className="relative">
@@ -149,30 +149,30 @@ const ProductInputModal = ({ product, isOpen, onClose, onAdd }) => {
               step={isBulk ? "0.001" : "1"}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              className="w-full text-2xl font-bold text-center py-4 bg-dark-900 border border-dark-700 rounded-xl text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none"
+              className="w-full text-2xl font-bold text-center py-4 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none"
               placeholder="0"
             />
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-dark-400 font-medium">
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-600 dark:text-slate-400 font-medium">
               {mode === 'cantidad' ? unit : '$'}
             </div>
           </div>
         </div>
 
         {/* Resumen */}
-        <div className="bg-dark-800/50 p-4 rounded-xl border border-dark-800 space-y-2">
+        <div className="bg-slate-100 dark:bg-slate-700/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
           <div className="flex justify-between items-center text-sm">
-            <span className="text-dark-400">Cantidad resultante:</span>
-            <span className="font-bold text-dark-50">{calculatedQty.toFixed(3)} {unit}</span>
+            <span className="text-slate-600 dark:text-slate-400">Cantidad resultante:</span>
+            <span className="font-bold text-slate-900 dark:text-slate-100">{calculatedQty.toFixed(3)} {unit}</span>
           </div>
           <div className="flex justify-between items-center text-sm">
-            <span className="text-dark-400">Precio aplicado:</span>
+            <span className="text-slate-600 dark:text-slate-400">Precio aplicado:</span>
             <div className="flex items-center space-x-2">
-              <span className="font-bold text-dark-50">{formatCurrency(appliedPrice)}</span>
+              <span className="font-bold text-slate-900 dark:text-slate-100">{formatCurrency(appliedPrice)}</span>
               {priceType === 'mayoreo' && <Badge variant="primary" className="text-[10px]">MAYOREO</Badge>}
             </div>
           </div>
-          <div className="border-t border-dark-700 pt-2 mt-2 flex justify-between items-center">
-            <span className="text-dark-300 font-medium">Subtotal:</span>
+          <div className="border-t border-slate-300 dark:border-slate-600 pt-2 mt-2 flex justify-between items-center">
+            <span className="text-slate-700 dark:text-slate-300 font-medium">Subtotal:</span>
             <span className="text-xl font-bold text-primary-400">{formatCurrency(calculatedSubtotal)}</span>
           </div>
         </div>

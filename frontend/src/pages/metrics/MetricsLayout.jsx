@@ -19,7 +19,7 @@ const MetricsLayout = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex overflow-x-auto space-x-2 bg-dark-900 p-2 rounded-2xl border border-dark-800">
+      <div className="flex overflow-x-auto space-x-2 bg-white dark:bg-slate-800 p-2 rounded-2xl border border-slate-200 dark:border-slate-700">
         {navItems.map((item) => (
           <NavLink
             key={item.name}
@@ -29,7 +29,7 @@ const MetricsLayout = () => {
               `px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-colors ${
                 isActive
                   ? 'bg-primary-600 text-white shadow-md shadow-primary-900/20'
-                  : 'text-dark-400 hover:text-dark-50 hover:bg-dark-800'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:bg-slate-700'
               }`
             }
           >

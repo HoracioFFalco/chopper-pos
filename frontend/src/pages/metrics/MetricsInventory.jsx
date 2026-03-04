@@ -40,18 +40,18 @@ const MetricsInventory = () => {
 
   const columns = [
     { header: 'Sucursal', accessorKey: 'branch_name' },
-    { header: 'Producto', accessorKey: 'name', className: 'font-bold text-dark-50' },
+    { header: 'Producto', accessorKey: 'name', className: 'font-bold text-slate-900 dark:text-slate-100' },
     { header: 'Stock Actual', cell: (row) => <span className="text-red-400 font-bold">{row.stock_actual}</span> },
   ];
 
   return (
     <div className="space-y-6">
       {user.role === 'admin' && (
-        <div className="bg-dark-900 p-4 rounded-2xl border border-dark-800 flex items-center justify-between">
+        <div className="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-center justify-between">
           <select
             value={branchFilter}
             onChange={(e) => setBranchFilter(e.target.value)}
-            className="px-4 py-2 bg-dark-800 border border-dark-700 rounded-xl text-sm text-dark-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="px-4 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
           >
             <option value="all">Todas las sucursales</option>
             {branches.map(b => (
@@ -68,29 +68,29 @@ const MetricsInventory = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-          <div className="bg-dark-900 p-6 rounded-2xl border border-dark-800">
-            <h3 className="text-lg font-bold text-dark-50 mb-6 flex items-center"><Package className="w-5 h-5 mr-2 text-primary-400" /> Valorización de Inventario</h3>
+          <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-6 flex items-center"><Package className="w-5 h-5 mr-2 text-primary-400" /> Valorización de Inventario</h3>
             <div className="space-y-4">
               {data.inventory_valuation.map((val, idx) => (
-                <div key={idx} className="flex justify-between items-center p-4 bg-dark-800 rounded-xl border border-dark-700">
-                  <span className="font-medium text-dark-200">{val.label}</span>
+                <div key={idx} className="flex justify-between items-center p-4 bg-slate-100 dark:bg-slate-700 rounded-xl border border-slate-300 dark:border-slate-600">
+                  <span className="font-medium text-slate-800 dark:text-slate-200">{val.label}</span>
                   <span className="text-xl font-bold text-primary-400">{formatCurrency(val.value)}</span>
                 </div>
               ))}
               {data.inventory_valuation.length === 0 && (
-                <p className="text-dark-400 text-center py-4">No hay datos de valorización</p>
+                <p className="text-slate-600 dark:text-slate-400 text-center py-4">No hay datos de valorización</p>
               )}
             </div>
           </div>
 
-          <div className="bg-dark-900 p-6 rounded-2xl border border-red-900/30">
+          <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-red-900/30">
             <h3 className="text-lg font-bold text-red-400 mb-6 flex items-center"><AlertCircle className="w-5 h-5 mr-2" /> Alertas de Stock Bajo</h3>
             {data.low_stock_details.length > 0 ? (
               <DataTable columns={columns} data={data.low_stock_details} mobileRender={(row) => (
                 <div className="flex justify-between items-center">
                   <div>
-                    <p className="font-bold text-dark-50">{row.name}</p>
-                    <p className="text-xs text-dark-400">{row.branch_name}</p>
+                    <p className="font-bold text-slate-900 dark:text-slate-100">{row.name}</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">{row.branch_name}</p>
                   </div>
                   <span className="text-red-400 font-bold">{row.stock_actual}</span>
                 </div>

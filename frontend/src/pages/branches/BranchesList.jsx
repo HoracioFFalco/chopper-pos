@@ -62,7 +62,7 @@ const BranchesList = () => {
   };
 
   const columns = [
-    { header: 'Nombre', accessorKey: 'name', className: 'font-semibold text-dark-50' },
+    { header: 'Nombre', accessorKey: 'name', className: 'font-semibold text-slate-900 dark:text-slate-100' },
     { header: 'Dirección', accessorKey: 'address' },
     {
       header: 'Acciones',
@@ -70,13 +70,13 @@ const BranchesList = () => {
         <div className="flex items-center space-x-2">
           <button
             onClick={() => { setEditingBranch(row); setIsFormOpen(true); }}
-            className="p-1.5 bg-dark-800 hover:bg-primary-900/50 text-primary-400 rounded-lg transition-colors"
+            className="p-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-primary-900/50 text-primary-400 rounded-lg transition-colors"
           >
             <Edit2 className="w-4 h-4" />
           </button>
           <button
             onClick={() => { setBranchToDelete(row); setIsDeleteOpen(true); }}
-            className="p-1.5 bg-dark-800 hover:bg-red-900/50 text-red-400 rounded-lg transition-colors"
+            className="p-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-red-900/50 text-red-400 rounded-lg transition-colors"
           >
             <Trash2 className="w-4 h-4" />
           </button>
@@ -89,8 +89,8 @@ const BranchesList = () => {
     <div>
       <div className="flex justify-between items-start mb-2">
         <div>
-          <h3 className="font-bold text-dark-50">{row.name}</h3>
-          <p className="text-xs text-dark-400">{row.address}</p>
+          <h3 className="font-bold text-slate-900 dark:text-slate-100">{row.name}</h3>
+          <p className="text-xs text-slate-600 dark:text-slate-400">{row.address}</p>
         </div>
         <div className="flex space-x-2">
           <button onClick={() => { setEditingBranch(row); setIsFormOpen(true); }} className="text-primary-400 p-1">
@@ -108,8 +108,8 @@ const BranchesList = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-dark-50">Sucursales</h1>
-          <p className="text-sm text-dark-400">Gestiona las sedes de tu negocio</p>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Sucursales</h1>
+          <p className="text-sm text-slate-600 dark:text-slate-400">Gestiona las sedes de tu negocio</p>
         </div>
         <button
           onClick={() => { setEditingBranch(null); setIsFormOpen(true); }}

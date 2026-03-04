@@ -42,8 +42,8 @@ const MetricsProducts = () => {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-dark-900 border border-dark-700 p-3 rounded-xl shadow-xl">
-          <p className="text-dark-50 font-bold mb-2">{label}</p>
+        <div className="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 p-3 rounded-xl shadow-xl">
+          <p className="text-slate-900 dark:text-slate-100 font-bold mb-2">{label}</p>
           {payload.map((entry, index) => (
             <p key={index} className="text-sm" style={{ color: entry.color }}>
               {entry.name}: <span className="font-bold">{formatCurrency(entry.value)}</span>
@@ -70,8 +70,8 @@ const MetricsProducts = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-dark-900 p-6 rounded-2xl border border-dark-800">
-            <h3 className="text-lg font-bold text-dark-50 mb-6">Top 10 Productos por Ingresos</h3>
+          <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-6">Top 10 Productos por Ingresos</h3>
             <div className="h-[400px] w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart layout="vertical" data={data.top_products_amount} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
@@ -85,8 +85,8 @@ const MetricsProducts = () => {
             </div>
           </div>
 
-          <div className="bg-dark-900 p-6 rounded-2xl border border-dark-800">
-            <h3 className="text-lg font-bold text-dark-50 mb-6">Top 10 Productos por Rentabilidad</h3>
+          <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-6">Top 10 Productos por Rentabilidad</h3>
             <div className="h-[400px] w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart layout="vertical" data={data.top_products_profit} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>

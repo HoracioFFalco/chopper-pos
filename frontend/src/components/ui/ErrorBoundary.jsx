@@ -18,13 +18,13 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen bg-dark-950 flex flex-col items-center justify-center p-4">
-          <div className="bg-dark-900 border border-red-900/30 p-8 rounded-2xl max-w-lg w-full text-center shadow-2xl">
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-900 flex flex-col items-center justify-center p-4">
+          <div className="bg-white dark:bg-slate-800 border border-red-900/30 p-8 rounded-2xl max-w-lg w-full text-center shadow-2xl">
             <div className="w-16 h-16 bg-red-900/20 text-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
               <AlertTriangle className="w-8 h-8" />
             </div>
-            <h1 className="text-2xl font-bold text-dark-50 mb-2">Algo salió mal</h1>
-            <p className="text-dark-300 mb-6">
+            <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">Algo salió mal</h1>
+            <p className="text-slate-700 dark:text-slate-300 mb-6">
               Ocurrió un error inesperado en la aplicación. Hemos registrado el problema.
             </p>
             <button

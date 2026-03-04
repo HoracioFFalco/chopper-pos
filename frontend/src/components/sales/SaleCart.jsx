@@ -102,16 +102,16 @@ const SaleCart = ({
   return (
     <div className="flex flex-col h-full gap-4">
       {/* MOBILE TABS */}
-      <div className="lg:hidden flex p-1 bg-dark-900 rounded-xl border border-dark-800 shrink-0">
+      <div className="lg:hidden flex p-1 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shrink-0">
         <button
           onClick={() => setMobileTab('productos')}
-          className={`flex-1 py-2 text-sm font-bold rounded-lg transition-colors ${mobileTab === 'productos' ? 'bg-primary-600 text-white shadow-sm' : 'text-dark-400 hover:text-dark-200'}`}
+          className={`flex-1 py-2 text-sm font-bold rounded-lg transition-colors ${mobileTab === 'productos' ? 'bg-primary-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200'}`}
         >
           Productos
         </button>
         <button
           onClick={() => setMobileTab('carrito')}
-          className={`flex-1 py-2 text-sm font-bold rounded-lg transition-colors flex items-center justify-center space-x-2 ${mobileTab === 'carrito' ? 'bg-primary-600 text-white shadow-sm' : 'text-dark-400 hover:text-dark-200'}`}
+          className={`flex-1 py-2 text-sm font-bold rounded-lg transition-colors flex items-center justify-center space-x-2 ${mobileTab === 'carrito' ? 'bg-primary-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200'}`}
         >
           <span>Carrito</span>
           {cart.length > 0 && (
@@ -124,16 +124,16 @@ const SaleCart = ({
 
       <div className="flex flex-col lg:flex-row gap-6 h-full min-h-0">
         {/* LEFT COLUMN: BUSCADOR */}
-        <div className={`flex-1 flex-col min-h-0 bg-dark-900 rounded-2xl border border-dark-800 shadow-sm overflow-hidden ${mobileTab === 'productos' ? 'flex' : 'hidden lg:flex'}`}>
-          <div className="p-4 border-b border-dark-800">
+        <div className={`flex-1 flex-col min-h-0 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden ${mobileTab === 'productos' ? 'flex' : 'hidden lg:flex'}`}>
+          <div className="p-4 border-b border-slate-200 dark:border-slate-700">
             <div className="relative">
-              <Search className="w-5 h-5 absolute left-3 top-3 text-dark-400" />
+              <Search className="w-5 h-5 absolute left-3 top-3 text-slate-600 dark:text-slate-400" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Buscar productos..."
-                className="w-full pl-10 pr-4 py-2.5 bg-dark-800 border border-dark-700 rounded-xl text-dark-50 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all"
               />
             </div>
           </div>
@@ -143,19 +143,19 @@ const SaleCart = ({
               <div 
                 key={prod.id}
                 onClick={() => setSelectedProduct(prod)}
-                className="bg-dark-800 border border-dark-700 hover:border-primary-500 rounded-xl p-3 cursor-pointer transition-all hover:-translate-y-1 flex flex-col justify-between"
+                className="bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 hover:border-primary-500 rounded-xl p-3 cursor-pointer transition-all hover:-translate-y-1 flex flex-col justify-between"
               >
                 <div>
-                  <p className="font-bold text-sm text-dark-50 leading-tight mb-1">{prod.name}</p>
+                  <p className="font-bold text-sm text-slate-900 dark:text-slate-100 leading-tight mb-1">{prod.name}</p>
                   <div className="flex items-center gap-1 mb-2">
                     <span className={`w-2 h-2 rounded-full ${parseFloat(prod.stock_actual) > 10 ? 'bg-emerald-500' : 'bg-red-500'}`}></span>
-                    <span className="text-xs text-dark-400">{prod.stock_actual} disp.</span>
+                    <span className="text-xs text-slate-600 dark:text-slate-400">{prod.stock_actual} disp.</span>
                   </div>
                 </div>
                 <div>
                   <p className="text-lg font-bold text-primary-400">{formatCurrency(prod.retail_price)}</p>
                   {prod.wholesale_price && (
-                    <p className="text-[10px] text-dark-400">Mayoreo: {formatCurrency(prod.wholesale_price)}</p>
+                    <p className="text-[10px] text-slate-600 dark:text-slate-400">Mayoreo: {formatCurrency(prod.wholesale_price)}</p>
                   )}
                 </div>
               </div>
@@ -164,16 +164,16 @@ const SaleCart = ({
         </div>
 
         {/* RIGHT COLUMN: CARRITO Y CIERRE */}
-        <div className={`w-full lg:w-[400px] flex-col min-h-0 bg-dark-900 rounded-2xl border border-dark-800 shadow-sm overflow-hidden ${mobileTab === 'carrito' ? 'flex' : 'hidden lg:flex'}`}>
-        <div className="p-4 border-b border-dark-800 flex items-center space-x-2">
+        <div className={`w-full lg:w-[400px] flex-col min-h-0 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden ${mobileTab === 'carrito' ? 'flex' : 'hidden lg:flex'}`}>
+        <div className="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center space-x-2">
           <ShoppingCart className="w-5 h-5 text-primary-500" />
-          <h2 className="font-bold text-dark-50">Resumen de Operación</h2>
+          <h2 className="font-bold text-slate-900 dark:text-slate-100">Resumen de Operación</h2>
         </div>
 
         {/* Lista de Carrito */}
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
           {cart.length === 0 ? (
-            <div className="h-full flex flex-col items-center justify-center text-dark-500">
+            <div className="h-full flex flex-col items-center justify-center text-slate-900 dark:text-slate-1000">
               <ShoppingCart className="w-12 h-12 mb-2 opacity-20" />
               <p className="text-sm">El carrito está vacío</p>
             </div>
@@ -185,29 +185,29 @@ const SaleCart = ({
         </div>
 
         {/* Panel de Cierre */}
-        <div className="bg-dark-950 p-4 border-t border-dark-800 space-y-4">
+        <div className="bg-slate-50 dark:bg-slate-900 p-4 border-t border-slate-200 dark:border-slate-700 space-y-4">
           
           <div className="space-y-3">
             <select
               value={selectedClient}
               onChange={(e) => setSelectedClient(e.target.value)}
-              className="w-full px-3 py-2 bg-dark-800 border border-dark-700 rounded-lg text-sm text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+              className="w-full px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-sm text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
             >
               <option value="">Consumidor Final</option>
               {clients.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
             </select>
 
             {allowAccount && (
-              <div className="flex p-1 bg-dark-800 rounded-lg">
+              <div className="flex p-1 bg-slate-100 dark:bg-slate-700 rounded-lg">
                 <button
                   onClick={() => setPaymentMethod('contado')}
-                  className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-colors ${paymentMethod === 'contado' ? 'bg-primary-600 text-white' : 'text-dark-400 hover:text-dark-200'}`}
+                  className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-colors ${paymentMethod === 'contado' ? 'bg-primary-600 text-white' : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200'}`}
                 >
                   CONTADO
                 </button>
                 <button
                   onClick={() => setPaymentMethod('cuenta_corriente')}
-                  className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-colors ${paymentMethod === 'cuenta_corriente' ? 'bg-warning text-yellow-900 bg-yellow-500' : 'text-dark-400 hover:text-dark-200'}`}
+                  className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-colors ${paymentMethod === 'cuenta_corriente' ? 'bg-warning text-yellow-900 bg-yellow-500' : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200'}`}
                 >
                   CTA. CORRIENTE
                 </button>
@@ -226,9 +226,9 @@ const SaleCart = ({
             )}
           </div>
 
-          <div className="flex justify-between items-end pt-2 border-t border-dark-800">
-            <span className="text-dark-300 font-medium">Total:</span>
-            <span className="text-3xl font-black text-white">{formatCurrency(total)}</span>
+          <div className="flex justify-between items-end pt-2 border-t border-slate-200 dark:border-slate-700">
+            <span className="text-slate-700 dark:text-slate-300 font-medium">Total:</span>
+            <span className="text-3xl font-black text-slate-900 dark:text-white">{formatCurrency(total)}</span>
           </div>
 
           <button

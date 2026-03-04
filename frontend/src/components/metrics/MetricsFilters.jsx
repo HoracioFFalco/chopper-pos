@@ -12,14 +12,14 @@ const MetricsFilters = ({
   const { user, activeBranch } = useAuthStore();
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 bg-dark-900 p-4 rounded-2xl border border-dark-800 items-start sm:items-center justify-between mb-6">
+    <div className="flex flex-col sm:flex-row gap-4 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 items-start sm:items-center justify-between mb-6">
       <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
         
         {user.role === 'admin' && (
           <select
             value={branchFilter}
             onChange={(e) => setBranchFilter(e.target.value)}
-            className="px-4 py-2 bg-dark-800 border border-dark-700 rounded-xl text-sm text-dark-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="px-4 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
           >
             <option value="all">Todas las sucursales</option>
             {branches.map(b => (
@@ -31,7 +31,7 @@ const MetricsFilters = ({
         <select
           value={period}
           onChange={(e) => setPeriod(e.target.value)}
-          className="px-4 py-2 bg-dark-800 border border-dark-700 rounded-xl text-sm text-dark-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          className="px-4 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
         >
           <option value="hoy">Hoy</option>
           <option value="semana">Esta Semana</option>
@@ -43,7 +43,7 @@ const MetricsFilters = ({
       <button
         onClick={onRefresh}
         disabled={isLoading}
-        className="flex items-center space-x-2 px-4 py-2 bg-dark-800 hover:bg-dark-700 text-dark-200 rounded-xl transition-colors text-sm font-medium w-full sm:w-auto justify-center disabled:opacity-50"
+        className="flex items-center space-x-2 px-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:bg-slate-600 text-slate-800 dark:text-slate-200 rounded-xl transition-colors text-sm font-medium w-full sm:w-auto justify-center disabled:opacity-50"
       >
         <RefreshCcw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
         <span>Refrescar</span>

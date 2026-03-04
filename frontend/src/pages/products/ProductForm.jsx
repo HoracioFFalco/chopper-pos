@@ -68,7 +68,7 @@ const ProductForm = ({ initialData, onSubmit, isLoading, onCancel }) => {
       <FormField label="Nombre del Producto" error={errors.nombre?.message}>
         <input
           {...register('nombre')}
-          className="w-full px-3 py-2 bg-dark-800 border border-dark-700 rounded-lg text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+          className="w-full px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
         />
       </FormField>
 
@@ -77,7 +77,7 @@ const ProductForm = ({ initialData, onSubmit, isLoading, onCancel }) => {
           <select
             {...register('tipo')}
             disabled={!!initialData} // No permitir cambiar tipo si se está editando
-            className="w-full px-3 py-2 bg-dark-800 border border-dark-700 rounded-lg text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none transition-all disabled:opacity-50"
+            className="w-full px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none transition-all disabled:opacity-50"
           >
             <option value="liquido">Líquido a granel</option>
             <option value="seco">Seco / Envasado</option>
@@ -92,7 +92,7 @@ const ProductForm = ({ initialData, onSubmit, isLoading, onCancel }) => {
             type="number"
             step="0.01"
             {...register('costo')}
-            className="w-full px-3 py-2 bg-dark-800 border border-dark-700 rounded-lg text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+            className="w-full px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
           />
         </FormField>
         
@@ -101,19 +101,19 @@ const ProductForm = ({ initialData, onSubmit, isLoading, onCancel }) => {
             type="number"
             step="0.01"
             {...register('precio_menudeo')}
-            className="w-full px-3 py-2 bg-dark-800 border border-dark-700 rounded-lg text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+            className="w-full px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
           />
         </FormField>
       </div>
 
-      <div className="bg-dark-900/50 border border-dark-800 p-4 rounded-xl space-y-4">
+      <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-4 rounded-xl space-y-4">
         <label className="flex items-center space-x-3 cursor-pointer">
           <input
             type="checkbox"
             {...register('tiene_mayoreo')}
-            className="w-5 h-5 rounded border-dark-700 text-primary-600 focus:ring-primary-500 bg-dark-800"
+            className="w-5 h-5 rounded border-slate-300 dark:border-slate-600 text-primary-600 focus:ring-primary-500 bg-slate-100 dark:bg-slate-700"
           />
-          <span className="text-dark-50 font-medium">Habilitar Precio de Mayoreo</span>
+          <span className="text-slate-900 dark:text-slate-100 font-medium">Habilitar Precio de Mayoreo</span>
         </label>
         
         {errors.precio_mayoreo?.message && <p className="text-sm text-red-400">{errors.precio_mayoreo.message}</p>}
@@ -125,7 +125,7 @@ const ProductForm = ({ initialData, onSubmit, isLoading, onCancel }) => {
                 type="number"
                 step="0.01"
                 {...register('precio_mayoreo')}
-                className="w-full px-3 py-2 bg-dark-800 border border-dark-700 rounded-lg text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+                className="w-full px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
               />
             </FormField>
             <FormField label={`Cant. Mínima`} error={errors.cantidad_minima_mayoreo?.message}>
@@ -133,7 +133,7 @@ const ProductForm = ({ initialData, onSubmit, isLoading, onCancel }) => {
                 type="number"
                 step="0.001"
                 {...register('cantidad_minima_mayoreo')}
-                className="w-full px-3 py-2 bg-dark-800 border border-dark-700 rounded-lg text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+                className="w-full px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
               />
             </FormField>
           </div>
@@ -147,16 +147,16 @@ const ProductForm = ({ initialData, onSubmit, isLoading, onCancel }) => {
             step="0.001"
             disabled={!!initialData} // Solo editable al crear
             {...register('stock_actual')}
-            className="w-full px-3 py-2 bg-dark-800 border border-dark-700 rounded-lg text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none transition-all disabled:opacity-50"
+            className="w-full px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none transition-all disabled:opacity-50"
           />
         </FormField>
       </div>
 
-      <div className="flex space-x-3 pt-4 border-t border-dark-800">
+      <div className="flex space-x-3 pt-4 border-t border-slate-200 dark:border-slate-700">
         <button
           type="button"
           onClick={onCancel}
-          className="flex-1 py-2 px-4 bg-dark-800 hover:bg-dark-700 text-dark-200 rounded-lg transition-colors font-medium"
+          className="flex-1 py-2 px-4 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:bg-slate-600 text-slate-800 dark:text-slate-200 rounded-lg transition-colors font-medium"
         >
           Cancelar
         </button>

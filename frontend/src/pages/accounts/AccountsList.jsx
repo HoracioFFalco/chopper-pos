@@ -38,7 +38,7 @@ const AccountsList = () => {
   );
 
   const columns = [
-    { header: 'Cliente', accessorKey: 'customer_name', className: 'font-semibold text-dark-50' },
+    { header: 'Cliente', accessorKey: 'customer_name', className: 'font-semibold text-slate-900 dark:text-slate-100' },
     { header: 'Saldo Actual', cell: (row) => {
       const balance = parseFloat(row.current_balance);
       return (
@@ -58,7 +58,7 @@ const AccountsList = () => {
       cell: (row) => (
         <button
           onClick={() => navigate(`/accounts/${row.customer_id}`)}
-          className="flex items-center space-x-1 p-1.5 bg-dark-800 hover:bg-dark-700 text-dark-300 rounded-lg transition-colors text-sm"
+          className="flex items-center space-x-1 p-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg transition-colors text-sm"
         >
           <FileText className="w-4 h-4" />
           <span>Ver Detalle</span>
@@ -73,8 +73,8 @@ const AccountsList = () => {
       <div>
         <div className="flex justify-between items-start mb-2">
           <div>
-            <h3 className="font-bold text-dark-50">{row.customer_name}</h3>
-            <p className="text-xs text-dark-400">Actividad: {new Date(row.updated_at).toLocaleDateString()}</p>
+            <h3 className="font-bold text-slate-900 dark:text-slate-100">{row.customer_name}</h3>
+            <p className="text-xs text-slate-600 dark:text-slate-400">Actividad: {new Date(row.updated_at).toLocaleDateString()}</p>
           </div>
           <div className="text-right">
             <span className={`font-bold block ${balance > 0 ? 'text-red-400' : 'text-emerald-400'}`}>
@@ -84,7 +84,7 @@ const AccountsList = () => {
         </div>
         <button 
           onClick={() => navigate(`/accounts/${row.customer_id}`)}
-          className="w-full mt-3 flex items-center justify-center space-x-2 bg-dark-800 hover:bg-dark-700 text-dark-200 py-2 rounded-lg transition-colors text-sm"
+          className="w-full mt-3 flex items-center justify-center space-x-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:bg-slate-600 text-slate-800 dark:text-slate-200 py-2 rounded-lg transition-colors text-sm"
         >
           <FileText className="w-4 h-4" />
           <span>Ver Movimientos y Pagar</span>
@@ -97,19 +97,19 @@ const AccountsList = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-dark-50">Cuentas Corrientes</h1>
-          <p className="text-sm text-dark-400">Gestiona las deudas y saldos de clientes</p>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Cuentas Corrientes</h1>
+          <p className="text-sm text-slate-600 dark:text-slate-400">Gestiona las deudas y saldos de clientes</p>
         </div>
       </div>
 
       <div className="relative">
-        <Search className="w-5 h-5 absolute left-3 top-2.5 text-dark-400" />
+        <Search className="w-5 h-5 absolute left-3 top-2.5 text-slate-600 dark:text-slate-400" />
         <input
           type="text"
           placeholder="Buscar cuenta por cliente..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-10 pr-4 py-2 bg-dark-900 border border-dark-800 rounded-xl text-dark-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          className="w-full pl-10 pr-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
         />
       </div>
 

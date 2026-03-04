@@ -71,8 +71,8 @@ const ClientsList = () => {
   const columns = [
     { header: 'Cliente', cell: (row) => (
       <div>
-        <p className="font-semibold text-dark-50">{row.name}</p>
-        <p className="text-xs text-dark-400">{getContactInfo(row).email}</p>
+        <p className="font-semibold text-slate-900 dark:text-slate-100">{row.name}</p>
+        <p className="text-xs text-slate-600 dark:text-slate-400">{getContactInfo(row).email}</p>
       </div>
     )},
     { header: 'Teléfono', cell: (row) => getContactInfo(row).phone || '-' },
@@ -90,13 +90,13 @@ const ClientsList = () => {
         <div className="flex items-center space-x-2">
           <button
             onClick={() => { setEditingClient(row); setIsFormOpen(true); }}
-            className="p-1.5 bg-dark-800 hover:bg-primary-900/50 text-primary-400 rounded-lg transition-colors"
+            className="p-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-primary-900/50 text-primary-400 rounded-lg transition-colors"
           >
             <Edit2 className="w-4 h-4" />
           </button>
           <button
             onClick={() => navigate(`/accounts/${row.id}`)}
-            className="p-1.5 bg-dark-800 hover:bg-dark-700 text-dark-300 rounded-lg transition-colors"
+            className="p-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg transition-colors"
             title="Ver Cuenta Corriente"
           >
             <FileText className="w-4 h-4" />
@@ -113,8 +113,8 @@ const ClientsList = () => {
       <div>
         <div className="flex justify-between items-start mb-2">
           <div>
-            <h3 className="font-bold text-dark-50">{row.name}</h3>
-            <p className="text-xs text-dark-400">{contact.phone || contact.email}</p>
+            <h3 className="font-bold text-slate-900 dark:text-slate-100">{row.name}</h3>
+            <p className="text-xs text-slate-600 dark:text-slate-400">{contact.phone || contact.email}</p>
           </div>
           <div className="flex space-x-2">
             <button onClick={() => { setEditingClient(row); setIsFormOpen(true); }} className="text-primary-400 p-1">
@@ -122,7 +122,7 @@ const ClientsList = () => {
             </button>
           </div>
         </div>
-        <div className="mt-3 flex justify-between items-center border-t border-dark-800 pt-3">
+        <div className="mt-3 flex justify-between items-center border-t border-slate-200 dark:border-slate-700 pt-3">
           <Badge variant={balance > 0 ? 'danger' : 'success'}>
             {balance > 0 ? `DEUDA: ${formatCurrency(balance)}` : 'AL DÍA'}
           </Badge>
@@ -138,8 +138,8 @@ const ClientsList = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-dark-50">Clientes</h1>
-          <p className="text-sm text-dark-400">Directorio y saldos</p>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Clientes</h1>
+          <p className="text-sm text-slate-600 dark:text-slate-400">Directorio y saldos</p>
         </div>
         <button
           onClick={() => { setEditingClient(null); setIsFormOpen(true); }}
@@ -151,13 +151,13 @@ const ClientsList = () => {
       </div>
 
       <div className="relative">
-        <Search className="w-5 h-5 absolute left-3 top-2.5 text-dark-400" />
+        <Search className="w-5 h-5 absolute left-3 top-2.5 text-slate-600 dark:text-slate-400" />
         <input
           type="text"
           placeholder="Buscar cliente por nombre, email o teléfono..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-10 pr-4 py-2 bg-dark-900 border border-dark-800 rounded-xl text-dark-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          className="w-full pl-10 pr-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
         />
       </div>
 

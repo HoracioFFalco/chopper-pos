@@ -63,7 +63,7 @@ const InventoryList = () => {
   };
 
   const columns = [
-    { header: 'Producto', cell: (row) => <span className="font-semibold text-dark-50">{row.product_name}</span> },
+    { header: 'Producto', cell: (row) => <span className="font-semibold text-slate-900 dark:text-slate-100">{row.product_name}</span> },
     { header: 'Tipo', cell: (row) => <Badge className="uppercase">{row.product_type}</Badge> },
     { header: 'Stock Actual', cell: (row) => (
       <div className="flex items-baseline space-x-1">
@@ -76,14 +76,14 @@ const InventoryList = () => {
         <div className="flex items-center space-x-2">
           <button
             onClick={() => { setProductToAdjust(row); setIsAdjustOpen(true); }}
-            className="flex items-center space-x-1 px-2 py-1.5 bg-dark-800 hover:bg-primary-900/50 text-primary-400 rounded-lg transition-colors text-sm font-medium"
+            className="flex items-center space-x-1 px-2 py-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-primary-900/50 text-primary-400 rounded-lg transition-colors text-sm font-medium"
           >
             <SlidersHorizontal className="w-4 h-4" />
             <span>Ajustar</span>
           </button>
           <button
             onClick={() => viewHistory(row)}
-            className="p-1.5 bg-dark-800 hover:bg-dark-700 text-dark-300 rounded-lg transition-colors"
+            className="p-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg transition-colors"
             title="Historial de movimientos"
           >
             <History className="w-4 h-4" />
@@ -97,24 +97,24 @@ const InventoryList = () => {
     <div>
       <div className="flex justify-between items-start mb-2">
         <div>
-          <h3 className="font-bold text-dark-50">{row.product_name}</h3>
-          <p className="text-xs text-dark-400 uppercase">{row.product_type}</p>
+          <h3 className="font-bold text-slate-900 dark:text-slate-100">{row.product_name}</h3>
+          <p className="text-xs text-slate-600 dark:text-slate-400 uppercase">{row.product_type}</p>
         </div>
         <div className="text-right">
            <StockBadge actual={row.stock_actual} />
         </div>
       </div>
-      <div className="flex space-x-2 mt-4 pt-4 border-t border-dark-800">
+      <div className="flex space-x-2 mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
         <button
           onClick={() => { setProductToAdjust(row); setIsAdjustOpen(true); }}
-          className="flex-1 flex justify-center items-center space-x-2 bg-dark-800 py-1.5 rounded-lg text-primary-400 text-sm"
+          className="flex-1 flex justify-center items-center space-x-2 bg-slate-100 dark:bg-slate-700 py-1.5 rounded-lg text-primary-400 text-sm"
         >
           <SlidersHorizontal className="w-4 h-4" />
           <span>Ajustar</span>
         </button>
         <button
           onClick={() => viewHistory(row)}
-          className="flex-1 flex justify-center items-center space-x-2 bg-dark-800 py-1.5 rounded-lg text-dark-300 text-sm"
+          className="flex-1 flex justify-center items-center space-x-2 bg-slate-100 dark:bg-slate-700 py-1.5 rounded-lg text-slate-700 dark:text-slate-300 text-sm"
         >
           <History className="w-4 h-4" />
           <span>Historial</span>
@@ -123,7 +123,7 @@ const InventoryList = () => {
     </div>
   );
 
-  if (!activeBranch) return <div className="text-dark-400">Seleccione una sucursal para ver el inventario.</div>;
+  if (!activeBranch) return <div className="text-slate-600 dark:text-slate-400">Seleccione una sucursal para ver el inventario.</div>;
 
   const lowStockCount = inventory.filter(i => parseFloat(i.stock_actual) <= parseFloat(i.stock_minimo)).length;
 
@@ -131,8 +131,8 @@ const InventoryList = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-dark-50">Inventario</h1>
-          <p className="text-sm text-dark-400">Control de stock de la sucursal activa</p>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Inventario</h1>
+          <p className="text-sm text-slate-600 dark:text-slate-400">Control de stock de la sucursal activa</p>
         </div>
         {lowStockCount > 0 && (
           <div className="flex items-center space-x-2 bg-red-900/30 text-red-400 px-3 py-1.5 rounded-full text-sm font-medium border border-red-900/50">
@@ -178,23 +178,23 @@ const InventoryList = () => {
         maxWidth="max-w-2xl"
       >
         {historyLoading ? (
-          <div className="text-center py-8 text-dark-400">Cargando historial...</div>
+          <div className="text-center py-8 text-slate-600 dark:text-slate-400">Cargando historial...</div>
         ) : (
           <div className="space-y-4">
             {historyData.length === 0 ? (
-              <p className="text-center text-dark-400">No hay movimientos registrados.</p>
+              <p className="text-center text-slate-600 dark:text-slate-400">No hay movimientos registrados.</p>
             ) : (
-              <div className="relative border-l border-dark-700 ml-3 space-y-6">
+              <div className="relative border-l border-slate-300 dark:border-slate-600 ml-3 space-y-6">
                 {historyData.map((mov) => (
                   <div key={mov.id} className="pl-6 relative">
-                    <div className={`absolute w-3 h-3 rounded-full -left-[6.5px] top-1.5 border-2 border-dark-900 ${
+                    <div className={`absolute w-3 h-3 rounded-full -left-[6.5px] top-1.5 border-2 border-slate-100 dark:border-slate-800 ${
                       mov.quantity > 0 ? 'bg-emerald-500' : 'bg-red-500'
                     }`} />
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="font-medium text-dark-50">{mov.reason}</p>
-                        <p className="text-xs text-dark-400 capitalize">{mov.type} • Por: {mov.user_name}</p>
-                        <p className="text-xs text-dark-500 mt-1">{new Date(mov.created_at).toLocaleString()}</p>
+                        <p className="font-medium text-slate-900 dark:text-slate-100">{mov.reason}</p>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 capitalize">{mov.type} • Por: {mov.user_name}</p>
+                        <p className="text-xs text-slate-900 dark:text-slate-1000 mt-1">{new Date(mov.created_at).toLocaleString()}</p>
                       </div>
                       <span className={`font-bold ${mov.quantity > 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                         {mov.quantity > 0 ? '+' : ''}{mov.quantity}

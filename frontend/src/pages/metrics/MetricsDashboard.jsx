@@ -7,9 +7,9 @@ import { formatCurrency } from '../../utils/formatters';
 import { TrendingUp, TrendingDown, DollarSign, Target, ShoppingCart, Users } from 'lucide-react';
 
 const KPICard = ({ title, value, icon: Icon, trend, prefix = '' }) => (
-  <div className="bg-dark-900 border border-dark-800 p-6 rounded-2xl flex flex-col justify-between">
+  <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl flex flex-col justify-between">
     <div className="flex justify-between items-start mb-4">
-      <div className="p-3 bg-dark-800 rounded-xl text-primary-400">
+      <div className="p-3 bg-slate-100 dark:bg-slate-700 rounded-xl text-primary-400">
         <Icon className="w-6 h-6" />
       </div>
       {trend !== undefined && (
@@ -20,8 +20,8 @@ const KPICard = ({ title, value, icon: Icon, trend, prefix = '' }) => (
       )}
     </div>
     <div>
-      <h3 className="text-sm font-medium text-dark-400 mb-1">{title}</h3>
-      <p className="text-2xl font-black text-dark-50">{prefix}{value}</p>
+      <h3 className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">{title}</h3>
+      <p className="text-2xl font-black text-slate-900 dark:text-slate-100">{prefix}{value}</p>
     </div>
   </div>
 );
@@ -64,8 +64,8 @@ const MetricsDashboard = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-dark-50">Dashboard General</h1>
-        <p className="text-sm text-dark-400">Resumen ejecutivo del período</p>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Dashboard General</h1>
+        <p className="text-sm text-slate-600 dark:text-slate-400">Resumen ejecutivo del período</p>
       </div>
 
       <MetricsFilters 

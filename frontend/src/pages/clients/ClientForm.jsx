@@ -47,7 +47,7 @@ const ClientForm = ({ initialData, onSubmit, isLoading, onCancel }) => {
       <FormField label="Nombre Completo" error={errors.name?.message}>
         <input
           {...register('name')}
-          className="w-full px-3 py-2 bg-dark-800 border border-dark-700 rounded-lg text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+          className="w-full px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
         />
       </FormField>
 
@@ -56,13 +56,13 @@ const ClientForm = ({ initialData, onSubmit, isLoading, onCancel }) => {
           <input
             {...register('email')}
             type="email"
-            className="w-full px-3 py-2 bg-dark-800 border border-dark-700 rounded-lg text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+            className="w-full px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
           />
         </FormField>
         <FormField label="Teléfono" error={errors.phone?.message}>
           <input
             {...register('phone')}
-            className="w-full px-3 py-2 bg-dark-800 border border-dark-700 rounded-lg text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+            className="w-full px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
           />
         </FormField>
       </div>
@@ -70,15 +70,15 @@ const ClientForm = ({ initialData, onSubmit, isLoading, onCancel }) => {
       <FormField label="Dirección" error={errors.address?.message}>
         <input
           {...register('address')}
-          className="w-full px-3 py-2 bg-dark-800 border border-dark-700 rounded-lg text-dark-50 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
+          className="w-full px-3 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-500 outline-none transition-all"
         />
       </FormField>
 
-      <div className="flex space-x-3 pt-4 border-t border-dark-800">
+      <div className="flex space-x-3 pt-4 border-t border-slate-200 dark:border-slate-700">
         <button
           type="button"
           onClick={onCancel}
-          className="flex-1 py-2 px-4 bg-dark-800 hover:bg-dark-700 text-dark-200 rounded-lg transition-colors font-medium"
+          className="flex-1 py-2 px-4 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:bg-slate-600 text-slate-800 dark:text-slate-200 rounded-lg transition-colors font-medium"
         >
           Cancelar
         </button>

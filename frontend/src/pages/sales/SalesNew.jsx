@@ -12,7 +12,7 @@ const SalesNew = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!activeBranch) {
-    return <div className="p-8 text-center text-dark-400">Por favor seleccione una sucursal para operar.</div>;
+    return <div className="p-8 text-center text-slate-600 dark:text-slate-400">Por favor seleccione una sucursal para operar.</div>;
   }
 
   const handleSubmit = async (saleData) => {

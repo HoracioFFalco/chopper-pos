@@ -5,11 +5,11 @@ import { formatCurrency } from '../../utils/formatters';
 
 const CartItem = ({ item, onRemove }) => {
   return (
-    <div className="bg-dark-800 p-3 rounded-xl border border-dark-700 flex justify-between items-center group">
+    <div className="bg-slate-100 dark:bg-slate-700 p-3 rounded-xl border border-slate-300 dark:border-slate-600 flex justify-between items-center group">
       <div className="flex-1 min-w-0 pr-3">
-        <p className="font-semibold text-sm text-dark-50 truncate">{item.name}</p>
+        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100 truncate">{item.name}</p>
         <div className="flex items-center space-x-2 mt-1">
-          <span className="text-xs text-dark-400">
+          <span className="text-xs text-slate-600 dark:text-slate-400">
             {item.cantidad} {item.unidad} x {formatCurrency(item.precio_unitario)}
           </span>
           {item.tipo_precio === 'mayoreo' && (

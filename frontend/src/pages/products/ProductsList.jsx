@@ -91,8 +91,8 @@ const ProductsList = () => {
   const columns = [
     { header: 'Producto', cell: (row) => (
       <div>
-        <p className="font-semibold text-dark-50">{row.name}</p>
-        <p className="text-xs text-dark-400">Costo: ${row.cost}</p>
+        <p className="font-semibold text-slate-900 dark:text-slate-100">{row.name}</p>
+        <p className="text-xs text-slate-600 dark:text-slate-400">Costo: ${row.cost}</p>
       </div>
     )},
     { header: 'Tipo', cell: (row) => <TypeBadge type={row.type} /> },
@@ -109,13 +109,13 @@ const ProductsList = () => {
         <div className="flex items-center space-x-2">
           <button
             onClick={() => { setEditingProduct(row); setIsFormOpen(true); }}
-            className="p-1.5 bg-dark-800 hover:bg-primary-900/50 text-primary-400 rounded-lg transition-colors"
+            className="p-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-primary-900/50 text-primary-400 rounded-lg transition-colors"
           >
             <Edit2 className="w-4 h-4" />
           </button>
           <button
             onClick={() => { setProductToDelete(row); setIsDeleteOpen(true); }}
-            className="p-1.5 bg-dark-800 hover:bg-red-900/50 text-red-400 rounded-lg transition-colors"
+            className="p-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-red-900/50 text-red-400 rounded-lg transition-colors"
           >
             <Trash2 className="w-4 h-4" />
           </button>
@@ -128,7 +128,7 @@ const ProductsList = () => {
     <div>
       <div className="flex justify-between items-start mb-2">
         <div>
-          <h3 className="font-bold text-dark-50">{row.name}</h3>
+          <h3 className="font-bold text-slate-900 dark:text-slate-100">{row.name}</h3>
           <TypeBadge type={row.type} />
         </div>
         <div className="flex space-x-2">
@@ -141,12 +141,12 @@ const ProductsList = () => {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-2 mt-3 text-sm">
-        <div className="bg-dark-800 p-2 rounded-lg">
-          <span className="text-dark-400 block text-xs">Menudeo</span>
-          <span className="text-dark-50 font-medium">${row.retail_price}</span>
+        <div className="bg-slate-100 dark:bg-slate-700 p-2 rounded-lg">
+          <span className="text-slate-600 dark:text-slate-400 block text-xs">Menudeo</span>
+          <span className="text-slate-900 dark:text-slate-100 font-medium">${row.retail_price}</span>
         </div>
-        <div className="bg-dark-800 p-2 rounded-lg">
-          <span className="text-dark-400 block text-xs">Stock</span>
+        <div className="bg-slate-100 dark:bg-slate-700 p-2 rounded-lg">
+          <span className="text-slate-600 dark:text-slate-400 block text-xs">Stock</span>
           <span className={`font-medium ${parseFloat(row.stock_actual) <= 10 ? 'text-red-400' : 'text-emerald-400'}`}>
             {row.stock_actual}
           </span>
@@ -155,14 +155,14 @@ const ProductsList = () => {
     </div>
   );
 
-  if (!activeBranch) return <div className="text-dark-400">Seleccione una sucursal para ver los productos.</div>;
+  if (!activeBranch) return <div className="text-slate-600 dark:text-slate-400">Seleccione una sucursal para ver los productos.</div>;
 
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-dark-50">Catálogo de Productos</h1>
-          <p className="text-sm text-dark-400">Gestiona precios y productos de la sucursal</p>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Catálogo de Productos</h1>
+          <p className="text-sm text-slate-600 dark:text-slate-400">Gestiona precios y productos de la sucursal</p>
         </div>
         <button
           onClick={() => { setEditingProduct(null); setIsFormOpen(true); }}
@@ -173,23 +173,23 @@ const ProductsList = () => {
         </button>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4 bg-dark-900 p-4 rounded-xl border border-dark-800">
+      <div className="flex flex-col md:flex-row gap-4 bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
         <div className="flex-1 relative">
-          <Search className="w-5 h-5 absolute left-3 top-2.5 text-dark-400" />
+          <Search className="w-5 h-5 absolute left-3 top-2.5 text-slate-600 dark:text-slate-400" />
           <input
             type="text"
             placeholder="Buscar producto..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-dark-800 border border-dark-700 rounded-lg text-dark-50 focus:outline-none focus:border-primary-500"
+            className="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 focus:outline-none focus:border-primary-500"
           />
         </div>
         <div className="flex items-center space-x-2">
-          <Filter className="w-5 h-5 text-dark-400" />
+          <Filter className="w-5 h-5 text-slate-600 dark:text-slate-400" />
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="bg-dark-800 border border-dark-700 rounded-lg px-4 py-2 text-dark-50 focus:outline-none focus:border-primary-500"
+            className="bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg px-4 py-2 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-primary-500"
           >
             <option value="all">Todos los tipos</option>
             <option value="liquido">Líquidos</option>
